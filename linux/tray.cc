@@ -52,7 +52,10 @@ bool Tray::init_indicator_api() {
       break;
     }
 
-    void* handle = dlopen("libappindicator3.so.1", RTLD_LAZY);
+    void* handle = dlopen("libayatana-appindicator3.so.1", RTLD_LAZY);
+    if (!handle) {
+      handle = dlopen("libappindicator3.so.1", RTLD_LAZY);
+    }
     if (!handle) {
       break;
     }
